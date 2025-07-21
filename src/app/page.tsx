@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux"
 import type { AppDispatch, RootState } from "../../store"
 import { setBrief, setMatchedTalents, setLoading } from "../../store/matchmaking-slice"
 import type { MatchResult } from "@/lib/data" // Import MatchResult type
+import { toast } from "sonner"
 
 export default function Home() {
   const dispatch = useDispatch<AppDispatch>()
@@ -35,7 +36,7 @@ export default function Home() {
     } catch (error) {
       console.error("Error during matchmaking:", error)
       // Optionally dispatch an error state to Redux
-      alert(`Error: ${(error as Error).message}. Please check your API key and try again.`)
+      toast.error((error as Error).message)
     } finally {
       dispatch(setLoading(false))
     }

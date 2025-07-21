@@ -52,7 +52,7 @@ export function MatchmakingForm({ onSubmit, isLoading, initialBrief = "" }: Matc
             </div>
           </div>
         </CardContent>
-        <CardFooter className="flex justify-end">
+        <CardFooter className="flex justify-end mt-3">
           <Button type="submit" disabled={isLoading}>
             {isLoading ? "Matching..." : "Find Matches"}
           </Button>
